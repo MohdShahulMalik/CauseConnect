@@ -1,10 +1,9 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as BootSplash from 'react-native-bootsplash';
 import * as Font from 'expo-font';
-import { Animated, Appearance } from 'react-native';
+import { Animated } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import 'react-native-reanimated';
 import "./main.css"
@@ -49,10 +48,9 @@ export default function RootLayout() {
         ...FontAwesome.font
       });
 
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
       setAppReady(true);
     }
+    prepare()
   }, [])
 
   useEffect(() => {
