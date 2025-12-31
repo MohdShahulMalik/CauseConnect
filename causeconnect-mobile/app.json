@@ -1,22 +1,13 @@
 {
   "expo": {
-    "name": "causeconnect-mobile",
+    "name": "CauseConnect",
     "slug": "causeconnect-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icons/ios-light.png",
-    "scheme": "causeconnectmobile",
+    "scheme": "causeconnect",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/icons/splash-icon-light.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "dark": {
-        "image": "./assets/images/icons/splash-icon-dark.png",
-        "backgroundColor": "#000000"
-      }
-    },
     "ios": {
       "supportsTablet": true,
       "icon": {
@@ -46,6 +37,17 @@
         {
           "domain": "dev-zczlap588q6otywu.au.auth0.com",
           "customScheme": "causeconnect"
+        }
+      ],
+
+      [
+        "react-native-bootsplash",
+        {
+          "assetsDir": "./assets/bootsplash",
+          "android": {
+            "parentTheme": "EdgeToEdge",
+            "darkContentBarsStyle": false
+          }
         }
       ]
     ],

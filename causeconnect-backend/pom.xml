@@ -8,7 +8,7 @@
 		<version>4.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.merzah</groupId>
+	<groupId>com.merzah.causeconnect</groupId>
 	<artifactId>causeconnect-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CauseConnect Server</name>

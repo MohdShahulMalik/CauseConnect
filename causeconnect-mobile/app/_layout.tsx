@@ -5,7 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-import "@/global.css"
+import "./main.css"
 import { Auth0Provider } from 'react-native-auth0';
 
 import { useColorScheme } from '@/components/useColorScheme';
