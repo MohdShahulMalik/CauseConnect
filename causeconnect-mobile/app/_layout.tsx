@@ -56,12 +56,12 @@ export default function RootLayout() {
   useEffect(() => {
     if (!appReady) return;
 
+    BootSplash.hide({ fade: true });
+
     Animated.parallel([
       Animated.timing(fadeAnim, { toValue: 1, duration: 800, useNativeDriver: true }),
-      Animated.spring(scaleAnim, { toValue: 1, tension: 120, friction: 8, useNativeDriver: true})
-    ]).start(async () => {
-      await BootSplash.hide({ fade: true });
-    });
+      Animated.spring(scaleAnim, { toValue: 1, tension: 120, friction: 16, useNativeDriver: true})
+    ]).start();
 
   }, [appReady]);
 
