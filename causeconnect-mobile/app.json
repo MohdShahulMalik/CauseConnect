@@ -14,7 +14,8 @@
         "light": "./assets/images/icons/ios-light.png",
         "dark": "./assets/images/icons/ios-dark.png",
         "tinted": "./assets/images/icons/ios-tinted.png"
-      }
+      },
+      "bundleIdentifier": "com.merzah.causeconnect"
     },
     "android": {
       "adaptiveIcon": {
@@ -39,7 +40,6 @@
           "customScheme": "causeconnect"
         }
       ],
-
       [
         "react-native-bootsplash",
         {
