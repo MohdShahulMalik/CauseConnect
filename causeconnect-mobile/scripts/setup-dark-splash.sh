@@ -40,19 +40,4 @@ cp assets/bootsplash-dark/android/drawable-xxhdpi/bootsplash_logo.png \
 cp assets/bootsplash-dark/android/drawable-xxxhdpi/bootsplash_logo.png \
    android/app/src/main/res/drawable-night-xxxhdpi/bootsplash_logo.png
 
-cp assets/bootsplash-dark/android/drawable-hdpi/splashscreen_logo.png \
-   android/app/src/main/res/drawable-night-hdpi/splashscreen_logo.png
-
-cp assets/bootsplash-dark/android/drawable-mdpi/splashscreen_logo.png \
-   android/app/src/main/res/drawable-night-mdpi/splashscreen_logo.png
-
-cp assets/bootsplash-dark/android/drawable-xhdpi/splashscreen_logo.png \
-   android/app/src/main/res/drawable-night-xhdpi/splashscreen_logo.png
-
-cp assets/bootsplash-dark/android/drawable-xxhdpi/splashscreen_logo.png \
-   android/app/src/main/res/drawable-night-xxhdpi/splashscreen_logo.png
-
-cp assets/bootsplash-dark/android/drawable-xxxhdpi/splashscreen_logo.png \
-   android/app/src/main/res/drawable-night-xxxhdpi/splashscreen_logo.png
-
 echo "✅ Dark mode splash restored!"
