@@ -2,3 +2,106 @@
 @import "uniwind";
 
 @source "../components";
+
+@theme{
+  /* Surface colors (backgrounds) - 900 is darkest */
+  --color-surface-700: oklch(1 0.06 198); /* lightest (white) */
+  --color-surface-800: oklch(0.96 0.06 198); /* default background */
+  --color-surface-900: oklch(0.92 0.06 198); /* darkest background */
+
+  /* Foreground colors (text) */
+  --color-foreground-900: oklch(0.15 0.12 198); /* primary text */
+  --color-foreground-600: oklch(0.4 0.12 198); /* muted text */
+
+  /* Accent/Highlight */
+  --color-accent-50: oklch(1 0.12 198);
+
+  /* Border colors */
+  --color-stroke: oklch(0.6 0.12 198); /* default border (darker) */
+  --color-stroke-muted: oklch(0.7 0.12 198); /* subtle border (lighter) */
+
+  /* Semantic colors */
+  --color-primary: oklch(0.4 0.12 198);
+  --color-secondary: oklch(0.4 0.12 18);
+  --color-danger: oklch(0.5 0.12 30);
+  --color-warning: oklch(0.5 0.12 100);
+  --color-success: oklch(0.5 0.12 160);
+  --color-info: oklch(0.5 0.12 260);
+}
+
+@layer theme {
+  :root, :host {
+    @variant dark {
+      --color-surface-700: oklch(0.2 0.06 198);
+      --color-surface-800: oklch(0.15 0.06 198);
+      --color-surface-900: oklch(0.1 0.06 198);
+
+      --color-foreground-900: oklch(0.96 0.1 198);
+      --color-foreground-600: oklch(0.76 0.1 198);
+
+      --color-accent-50: oklch(0.5 0.12 198);
+
+      --color-stroke: oklch(0.4 0.12 198);
+      --color-stroke-muted: oklch(0.3 0.12 198);
+
+      --color-primary: oklch(0.76 0.12 198);
+      --color-secondary: oklch(0.76 0.12 18);
+      --color-danger: oklch(0.7 0.12 30);
+      --color-warning: oklch(0.7 0.12 100);
+      --color-success: oklch(0.7 0.12 160);
+      --color-info: oklch(0.7 0.12 260);
+    }
+    @variant light {
+      /* Surface colors (backgrounds) - 900 is darkest */
+      --color-surface-700: oklch(1 0.06 198); /* lightest (white) */
+      --color-surface-800: oklch(0.96 0.06 198); /* default background */
+      --color-surface-900: oklch(0.92 0.06 198); /* darkest background */
+
+      /* Foreground colors (text) */
+      --color-foreground-900: oklch(0.15 0.12 198); /* primary text */
+      --color-foreground-600: oklch(0.4 0.12 198); /* muted text */
+
+      /* Accent/Highlight */
+      --color-accent-50: oklch(1 0.12 198);
+
+      /* Border colors */
+      --color-stroke: oklch(0.6 0.12 198); /* default border (darker) */
+      --color-stroke-muted: oklch(0.7 0.12 198); /* subtle border (lighter) */
+
+      /* Semantic colors */
+      --color-primary: oklch(0.4 0.12 198);
+      --color-secondary: oklch(0.4 0.12 18);
+      --color-danger: oklch(0.5 0.12 30);
+      --color-warning: oklch(0.5 0.12 100);
+      --color-success: oklch(0.5 0.12 160);
+      --color-info: oklch(0.5 0.12 260);
+    }
+  }
+}
+
+
+:root {
+  /* surface: 900 (darkest) -> 700 (lightest) */
+  --surface-900: oklch(0.92 0.06 198); /* was --bg-dark */
+  --surface-800: oklch(0.96 0.06 198); /* was --bg */
+  --surface-700: oklch(1 0.06 198);    /* was --bg-light */
+
+  /* foreground */
+  --foreground: oklch(0.15 0.12 198);        /* was --text */
+  --foreground-muted: oklch(0.4 0.12 198);   /* was --text-muted */
+
+  /* accent */
+  --accent: oklch(1 0.12 198); /* was --highlight */
+
+  /* stroke */
+  --stroke: oklch(0.6 0.12 198);        /* was --border */
+  --stroke-muted: oklch(0.7 0.12 198);  /* was --border-muted */
+
+  /* semantic */
+  --primary: oklch(0.4 0.12 198);
+  --secondary: oklch(0.4 0.12 18);
+  --danger: oklch(0.5 0.12 30);
+  --warning: oklch(0.5 0.12 100);
+  --success: oklch(0.5 0.12 160);
+  --info: oklch(0.5 0.12 260);
+}
