@@ -59,11 +59,11 @@ services:
     networks:
       - causeconnect-network
 
-  app:
+  api:
     build:
-      context: .
+      context: ../apps/api
       dockerfile: Dockerfile
-    container_name: causeconnect-backend
+    container_name: causeconnect-api
     ports:
       - "8080:8080"
     depends_on:
@@ -82,7 +82,7 @@ services:
       SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS: ${SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS}
       SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: ${SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS}
     volumes:
-      - .:/app
+      - ../apps/api:/app
       - ~/.m2:/root/.m2
     networks:
       - causeconnect-network

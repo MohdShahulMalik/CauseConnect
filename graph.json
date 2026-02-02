@@ -1,0 +1,302 @@
+{
+  "graph": {
+    "nodes": {
+      "@causeconnect/api-client": {
+        "name": "@causeconnect/api-client",
+        "type": "lib",
+        "data": {
+          "root": "packages/api-client",
+          "name": "@causeconnect/api-client",
+          "projectType": "library",
+          "tags": [
+            "npm:public"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "generate",
+                "generate:fetch",
+                "clean",
+                "typecheck"
+              ]
+            },
+            "description": "TypeScript client for CauseConnect API - generated from OpenAPI spec",
+            "js": {
+              "packageName": "@causeconnect/api-client",
+              "packageMain": "./src/index.ts",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "generate": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "generate"
+              },
+              "metadata": {
+                "scriptContent": "openapi-typescript-codegen --input ../apps/api/openapi.yaml --output ./src/generated --client vue-ts",
+                "runCommand": "npm run generate"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "generate:fetch": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "generate:fetch"
+              },
+              "metadata": {
+                "scriptContent": "openapi-typescript-codegen --input ../apps/api/openapi.yaml --output ./src/generated --client fetch",
+                "runCommand": "npm run generate:fetch"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "clean": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "clean"
+              },
+              "metadata": {
+                "scriptContent": "rm -rf ./src/generated",
+                "runCommand": "npm run clean"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "typecheck": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "typecheck"
+              },
+              "metadata": {
+                "scriptContent": "tsc --noEmit",
+                "runCommand": "npm run typecheck"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "mobile": {
+        "name": "mobile",
+        "type": "app",
+        "data": {
+          "root": "apps/mobile",
+          "name": "mobile",
+          "projectType": "application",
+          "tags": [
+            "npm:private",
+            "type:app",
+            "tech:typescript",
+            "framework:expo"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "js": {
+              "packageName": "causeconnect-mobile",
+              "packageMain": "expo-router/entry",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "build": {
+              "outputs": [
+                "apps/mobile/dist"
+              ],
+              "cache": true,
+              "inputs": [
+                "apps/mobile/app",
+                "apps/mobile/package.json",
+                "apps/mobile/assets"
+              ],
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run export"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "cache": false,
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "android": {
+              "cache": false,
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run android"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "ios": {
+              "cache": false,
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run ios"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "web": {
+              "cache": false,
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run web"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "apps/mobile/app",
+                "apps/mobile/package.json"
+              ],
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prebuild": {
+              "cache": false,
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun run prebuild"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "install:deps": {
+              "cache": false,
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/mobile && bun install"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "$schema": "./node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/mobile/app",
+          "implicitDependencies": []
+        }
+      },
+      "api": {
+        "name": "api",
+        "type": "app",
+        "data": {
+          "root": "apps/api",
+          "name": "api",
+          "$schema": "./node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/api/src",
+          "projectType": "application",
+          "tags": [
+            "type:app",
+            "tech:java",
+            "framework:spring-boot"
+          ],
+          "targets": {
+            "build": {
+              "outputs": [
+                "apps/api/target"
+              ],
+              "cache": true,
+              "inputs": [
+                "apps/api/src",
+                "apps/api/pom.xml",
+                "apps/api/.mvn"
+              ],
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/api && ./mvnw clean package -DskipTests"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve": {
+              "cache": false,
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/api && ./mvnw spring-boot:run"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "cache": true,
+              "inputs": [
+                "apps/api/src",
+                "apps/api/pom.xml"
+              ],
+              "dependsOn": [],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/api && ./mvnw test"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "clean": {
+              "cache": false,
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "cd apps/api && ./mvnw clean"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "docker:build": {
+              "cache": false,
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "docker build -t causeconnect-api apps/api"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "@causeconnect/api-client": [],
+      "mobile": [
+        {
+          "source": "mobile",
+          "target": "@causeconnect/api-client",
+          "type": "static"
+        }
+      ],
+      "api": []
+    }
+  }
+}

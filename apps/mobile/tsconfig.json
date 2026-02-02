@@ -5,6 +5,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@causeconnect/api-client": [
+        "../../packages/api-client/src"
       ]
     }
   },
@@ -13,6 +16,7 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "types/**/*.d.ts"
+    "types/**/*.d.ts",
+    "../../packages/api-client/src"
   ]
 }

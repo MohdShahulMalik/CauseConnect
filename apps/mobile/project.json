@@ -1,0 +1,50 @@
+{
+  "name": "mobile",
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mobile/app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "command": "cd apps/mobile && bun run export",
+      "outputs": ["apps/mobile/dist"],
+      "cache": true,
+      "inputs": ["apps/mobile/app", "apps/mobile/package.json", "apps/mobile/assets"],
+      "dependsOn": []
+    },
+    "start": {
+      "command": "cd apps/mobile && bun run start",
+      "cache": false,
+      "dependsOn": []
+    },
+    "android": {
+      "command": "cd apps/mobile && bun run android",
+      "cache": false,
+      "dependsOn": []
+    },
+    "ios": {
+      "command": "cd apps/mobile && bun run ios",
+      "cache": false,
+      "dependsOn": []
+    },
+    "web": {
+      "command": "cd apps/mobile && bun run web",
+      "cache": false,
+      "dependsOn": []
+    },
+    "test": {
+      "command": "cd apps/mobile && bun run test",
+      "cache": true,
+      "inputs": ["apps/mobile/app", "apps/mobile/package.json"],
+      "dependsOn": []
+    },
+    "prebuild": {
+      "command": "cd apps/mobile && bun run prebuild",
+      "cache": false
+    },
+    "install:deps": {
+      "command": "cd apps/mobile && bun install",
+      "cache": false
+    }
+  },
+  "tags": ["type:app", "tech:typescript", "framework:expo"]
+}

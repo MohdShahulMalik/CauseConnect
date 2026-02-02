@@ -1,0 +1,35 @@
+{
+  "name": "api",
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "command": "cd apps/api && ./mvnw clean package -DskipTests",
+      "outputs": ["apps/api/target"],
+      "cache": true,
+      "inputs": ["apps/api/src", "apps/api/pom.xml", "apps/api/.mvn"],
+      "dependsOn": []
+    },
+    "serve": {
+      "command": "cd apps/api && ./mvnw spring-boot:run",
+      "cache": false,
+      "dependsOn": []
+    },
+    "test": {
+      "command": "cd apps/api && ./mvnw test",
+      "cache": true,
+      "inputs": ["apps/api/src", "apps/api/pom.xml"],
+      "dependsOn": []
+    },
+    "clean": {
+      "command": "cd apps/api && ./mvnw clean",
+      "cache": false
+    },
+    "docker:build": {
+      "command": "docker build -t causeconnect-api apps/api",
+      "cache": false
+    }
+  },
+  "tags": ["type:app", "tech:java", "framework:spring-boot"]
+}

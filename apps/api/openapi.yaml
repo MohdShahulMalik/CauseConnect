@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: CauseConnect API
+  description: API for CauseConnect - A mobile-first social network for volunteers
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Development server
+tags:
+  - name: Health
+    description: Health check endpoints
+paths:
+  /actuator/health:
+    get:
+      tags:
+        - Health
+      summary: Health check endpoint
+      description: Returns the health status of the application
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Application is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UP
