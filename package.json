@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "nx": "^20.0.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "oxlint": "^0.15.0"
   },
   "engines": {
     "node": ">=20.0.0",

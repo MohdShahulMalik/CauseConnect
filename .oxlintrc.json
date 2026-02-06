@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "typescript", "unicorn", "react", "react-perf", "promise", "node", "jsdoc", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "style": "off",
+    "pedantic": "off",
+    "restriction": "off",
+    "nursery": "off"
+  },
+  "rules": {
+    "eqeqeq": ["error", "always", {"null": "ignore"}],
+    "no-unused-vars": ["error", {"argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}],
+    "no-console": ["warn"],
+    "no-debugger": ["error"],
+    "no-var": ["error"],
+    "prefer-const": ["error"],
+    "no-throw-literal": ["error"],
+    "no-duplicate-imports": ["error"],
+    "import/no-duplicates": ["error"],
+    "typescript/no-explicit-any": ["warn"],
+    "typescript/no-unused-vars": ["error", {"argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}],
+    "typescript/prefer-as-const": ["error"],
+    "react/jsx-key": ["error"],
+    "react/no-array-index-key": ["warn"]
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.expo/**",
+    "**/ios/**",
+    "**/android/**",
+    "**/*.config.js",
+    "**/*.config.ts",
+    "**/generated/**",
+    "apps/api/**",
+    "**/target/**"
+  ]
+}

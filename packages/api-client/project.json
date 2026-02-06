@@ -1,0 +1,36 @@
+{
+  "name": "api-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/api-client/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "command": "cd packages/api-client && bun run typecheck",
+      "outputs": [],
+      "cache": true,
+      "inputs": ["packages/api-client/src", "packages/api-client/package.json", "packages/api-client/tsconfig.json"],
+      "dependsOn": []
+    },
+    "generate": {
+      "command": "cd packages/api-client && bun run generate",
+      "cache": false,
+      "inputs": ["apps/api/openapi.yaml"],
+      "outputs": ["packages/api-client/src/generated"]
+    },
+    "clean": {
+      "command": "cd packages/api-client && bun run clean",
+      "cache": false
+    },
+    "typecheck": {
+      "command": "cd packages/api-client && bun run typecheck",
+      "cache": true,
+      "inputs": ["packages/api-client/src", "packages/api-client/tsconfig.json", "{workspaceRoot}/tsconfig.base.json"]
+    },
+    "lint": {
+      "command": "cd packages/api-client && oxlint --config ../../.oxlintrc.json .",
+      "cache": true,
+      "inputs": ["packages/api-client/src", "packages/api-client/package.json", "{workspaceRoot}/.oxlintrc.json"]
+    }
+  },
+  "tags": ["type:lib", "tech:typescript", "scope:shared"]
+}

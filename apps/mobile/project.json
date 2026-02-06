@@ -9,7 +9,17 @@
       "outputs": ["apps/mobile/dist"],
       "cache": true,
       "inputs": ["apps/mobile/app", "apps/mobile/package.json", "apps/mobile/assets"],
-      "dependsOn": []
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "command": "cd apps/mobile && oxlint --config ../../.oxlintrc.json .",
+      "cache": true,
+      "inputs": ["apps/mobile/app", "apps/mobile/package.json", "{workspaceRoot}/.oxlintrc.json"]
+    },
+    "typecheck": {
+      "command": "cd apps/mobile && tsc --noEmit",
+      "cache": true,
+      "inputs": ["apps/mobile/app", "apps/mobile/package.json", "apps/mobile/tsconfig.json", "{workspaceRoot}/tsconfig.base.json"]
     },
     "start": {
       "command": "cd apps/mobile && bun run start",
