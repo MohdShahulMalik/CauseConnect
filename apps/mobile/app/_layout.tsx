@@ -1,3 +1,5 @@
+import '../src/polyfills/webcrypto';
+
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
@@ -7,7 +9,7 @@ import { Animated } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import 'react-native-reanimated';
 import "./main.css"
-import { Auth0Provider } from 'react-native-auth0';
+import { AuthKitProvider } from '@workos-inc/authkit-react';
 
 import { useColorScheme } from '@/components/useColorScheme';
 import {
@@ -25,7 +27,7 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
+  // Ensure that reloading on `/modal` keeps a button present.
   initialRouteName: '(tabs)',
 };
 
@@ -83,20 +85,28 @@ function RootLayoutNav(props: RootLayoutNavProps) {
   const fadeAnim = props.fadeAnim;
   const scaleAnim = props.scaleAnim;
 
+  // WorkOS configuration from environment variables
+  // These should be set in .env file
+  const workosClientId = process.env.WORKOS_CLIENT_ID || '';
+  const workosApiHostname = process.env.WORKOS_API_HOSTNAME || 'https://api.workos.com';
+
   return (
     <Animated.View style={{
       flex: 1,
       opacity: fadeAnim,
       transform: [{ scale: scaleAnim }]
     }}>
-      <Auth0Provider domain = "dev-zczlap588q6otywu.au.auth0.com" clientId = "bI8V73uWqe8dEuxHvrzmLiOdgFHWD9Rf">
+      <AuthKitProvider 
+        clientId={workosClientId}
+        apiHostname={workosApiHostname}
+      >
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
           </Stack>
         </ThemeProvider>
-      </Auth0Provider>
+      </AuthKitProvider>
     </Animated.View>
   );
 }

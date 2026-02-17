@@ -34,3 +34,5 @@ yarn-error.log*
 
 # Docker
 *.dockerignore
+apps/api/.env.example
+apps/mobile/.env.example

@@ -3,3 +3,4 @@
 // Generated from apps/api/openapi.yaml
 
 export * from './generated';
+export * from './auth';

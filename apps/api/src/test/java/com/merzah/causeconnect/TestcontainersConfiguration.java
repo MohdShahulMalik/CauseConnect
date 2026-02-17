@@ -1,4 +1,4 @@
-package com.merzah.causeconnect.causeconnect_backend;
+package com.merzah.causeconnect;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;

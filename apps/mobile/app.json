@@ -34,13 +34,6 @@
     "plugins": [
       "expo-router",
       [
-        "react-native-auth0",
-        {
-          "domain": "dev-zczlap588q6otywu.au.auth0.com",
-          "customScheme": "causeconnect"
-        }
-      ],
-      [
         "react-native-bootsplash",
         {
           "assetsDir": "./assets/bootsplash",
