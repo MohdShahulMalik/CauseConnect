@@ -9,12 +9,7 @@ Build a minimal backend in 2-3 weeks so mobile development can start immediately
 
 ## Phase 1: Foundation (Week 1)
 
-**Day 1-2: Simplify**
-- Remove Neo4j and Kafka from pom.xml
-- Clean up application.properties
-- Verify build works
-
-**Day 3-5: Users & Auth**
+**Day 1-5: Users & Auth**
 - User entity: id, email, name, bio, avatarUrl
 - WorkOS JWT validation (already started)
 - Endpoints: GET /users/me, PATCH /users/me, GET /users/:id
