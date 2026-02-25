@@ -1,0 +1,9 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Spring uses this to auto-discover the JWKS URI
+          issuer-uri: https://api.workos.com/user_management/client_01KG2RH56XKVM6B0PKDY9JH2K7
+          # Optional: Hardcode the JWKS URI if you want to skip discovery
+          jwk-set-uri: https://api.workos.com/user_management/client_01KG2RH56XKVM6B0PKDY9JH2K7/.well-known/jwks.json
